@@ -28,7 +28,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Cloning started
       run: |
-       git clone ${{ github.event.inputs.name }} https://github.com/Xblade007/spring-petclinic.git
+       git clone -b ${{ github.event.inputs.name }} https://github.com/Xblade007/spring-petclinic.git
        cd spring-petclinic
        ./mvnw package
        java -jar target/*.jar
