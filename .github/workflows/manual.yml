@@ -32,4 +32,20 @@ jobs:
        cd spring-petclinic
        ./mvnw package
        java -jar target/*.jar
+    - name: Checkout source code
+      uses: actions/checkout@v2
+
+    - name: Generate deployment package
+      run: zip -r deploy.zip . -x '*.git*'
+
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v18
+      with:
+        aws_access_key: AKIATS63N5JYLOYBRVGK
+        aws_secret_key: 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
+        application_name: my-ebs-java-app
+        environment_name: Myebsjavaapp-env
+        version_label: 12345
+        region: us-east-1
+        deployment_package: deploy.zip
       
