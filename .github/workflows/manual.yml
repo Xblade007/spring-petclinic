@@ -26,5 +26,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+    - name: Cloning started
+      run: |
+       git clone ${{ github.event.inputs.name }} https://github.com/Xblade007/spring-petclinic.git
+       cd spring-petclinic
+       ./mvnw package
+       java -jar target/*.jar
+      
