@@ -49,6 +49,6 @@ jobs:
         application_name: my-ebs-java-app
         environment_name: Myebsjavaapp-env
         version_label: 12345
-        region: us-east-1
+        region: ap-south-1
         deployment_package: deploy.zip
       
